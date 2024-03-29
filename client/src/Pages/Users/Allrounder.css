@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+/* LOGIN PAGE */
+
+.imager{
+    width: 50%;
+    height: 100%;
+    
+}
+.Font_Family{
+    font-family: 'Courier New', Courier, monospace;
+}
+.nav_colo{
+    color: white;
+}
+.inner_box {
+    width: 1000px;
+    margin-left: 200px !important;
+    margin-top: 10px;
+    height: auto;
+    background-color: rgba(256, 256, 256, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgb(0, 0, 0);
+    padding: 20px;
+  }
+  .inputs{
+    
+        height: 36px;
+        border-radius: 8px;
+        border: none;
+        width: 460px;
+        box-shadow: 0 0 1px black;
+      
+  }
+.inputs_D{
+    height: 72px;
+    border-radius: 8px;
+    border: none;
+    width: 940px;
+    box-shadow: 0 0 1px black;
+}
+.pro_h1{
+    font-family:'Times New Roman', Times, serif;
+    font-weight: 800;
+    text-align: center;
+    color: #7F9F80;
+    border-color:black;
+}
