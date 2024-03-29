@@ -51,6 +51,8 @@ function Login() {
           console.log(response1);
           localStorage.removeItem('cartProduct')
           navigate("/");
+         }else{
+          navigate('/')
          }
       } else {
         toast.error("Email or Password is Incorrect");

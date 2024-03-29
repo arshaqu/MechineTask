@@ -180,21 +180,26 @@ const addLocalcart = async (req,res) =>{
         const {userId, ...productDataArray} = req.body;
         const data = Object.values(productDataArray)
         for (const productData of data) {
-            const newCartProduct = new Cart({
-              userId: userId,
-              productid: productData.productid,
-              product: productData.product,
-              price: productData.price,
-              model: productData.model,
-              image: productData.image,
-              category: productData.category, 
-              size: productData.size,
-              color: productData.color,
-              description: productData.description,
-              count: productData.count
-            });
-            console.log(newCartProduct);
-            await newCartProduct.save();
+            const isProduct = await Cart.findOne({ productid: productData.productid });
+            if(!isProduct) {
+                const newCartProduct = new Cart({
+                    userId: userId,
+                    productid: productData.productid,
+                    product: productData.product,
+                    price: productData.price,
+                    model: productData.model,
+                    image: productData.image,
+                    category: productData.category, 
+                    size: productData.size,
+                    color: productData.color,
+                    description: productData.description,
+                    count: productData.count
+                  });
+                  await newCartProduct.save();
+            }else{
+                let newCount = Number(isProduct.count) + 1
+                await Cart.updateOne({ productid: productData.productid }, { $set: { count: newCount }})
+            }
             res.status(200)
             .send( {message:'Data saved successfully',success:true } )
           }

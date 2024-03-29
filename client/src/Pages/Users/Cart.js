@@ -54,7 +54,7 @@ function Cart() {
         try {
         const response = await axios.post(
           "/api/user/delete",
-          { product: product },
+          { product: productToDelete },
           {
             headers: {
               Authorization: "Bearer " + localStorage.getItem("token"),
