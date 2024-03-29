@@ -33,7 +33,7 @@ function Login() {
         password,
       };
 
-      const cartProduct = localStorage.getItem('cartProduct');
+      let cartProduct = localStorage.getItem('cartProduct');
       console.log(cartProduct,"----------------");
      
       const response = await axios.post("/api/user/login", values);
@@ -43,7 +43,9 @@ function Login() {
 
         if (cartProduct) {
           const token = localStorage.getItem("token");
-          const response1 = await axios.post('/api/user/localCart', JSON.parse(cartProduct), {
+          cartProduct = JSON.parse(cartProduct)
+          console.log(cartProduct)
+          const response1 = await axios.post('/api/user/localCart', cartProduct, {
             headers: {
               Authorization: `Bearer ${token}`,
             },

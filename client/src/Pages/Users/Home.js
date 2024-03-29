@@ -53,7 +53,7 @@ function Home() {
 
     if(isData) {
       localStorage.removeItem('cartProduct');
-      isData.push(data);
+      isData.push(data[0]);
       localStorage.setItem('cartProduct', JSON.stringify(isData));
       navigate(`/cart`);
     } else {

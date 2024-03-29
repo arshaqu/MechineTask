@@ -26,7 +26,7 @@ function Cart() {
     } else {
       let cartProduct = localStorage.getItem('cartProduct');
       cartProduct = JSON.parse(cartProduct);
-      cartProduct = cartProduct.flat();
+      cartProduct = cartProduct?.flat();
       setProduct(cartProduct);
     }
   };
@@ -72,7 +72,7 @@ function Cart() {
       }else{
         let data = localStorage.getItem('cartProduct');
         data = JSON.parse(data);
-        data = data.flat();
+        data = data?.flat();
         localStorage.removeItem('cartProduct');
         const filter = data.filter(item => item.productid !== productToDelete.productid);
         setProduct(filter)
